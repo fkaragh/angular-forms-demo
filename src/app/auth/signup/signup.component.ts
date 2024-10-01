@@ -1,14 +1,6 @@
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
-// let initialEmailValue = '';
-// const savedForm = window.localStorage.getItem('saved-login-form');
-
-// if(savedForm){
-//   const loadedForm = JSON.parse(savedForm);
-//   initialEmailValue = loadedForm;
-// }
-
 function equalValues(controlName1:string, controlName2:string){
   return (control: AbstractControl) => {
     const val1 = control.get(controlName1)?.value;
@@ -65,14 +57,6 @@ export class SignupComponent implements OnInit{
     ]),
     agree: new FormControl(false,{validators:[Validators.required]}),
   })
-
-  // get emailIsInvalid(){
-  //   return (this.form.controls.email.invalid && this.form.controls.email.touched && this.form.controls.email.dirty);
-  // }
-  
-  // get passwordIsInvalid(){
-  //   return (this.form.controls.password.invalid && this.form.controls.password.touched && this.form.controls.password.dirty);
-  // }
 
   ngOnInit() {
     const subscription = this.form.valueChanges.subscribe({
